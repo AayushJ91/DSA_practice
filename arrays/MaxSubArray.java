@@ -1,7 +1,7 @@
 //Problem: maxSubArray
 //link: https://leetcode.com/problems/maximum-subarray/
 //Source: LeetCode-53
-//Topics: Arrays, Hashmap
+//Topics: Arrays
 //Diff: Med
 //Time: 1ms - beats 99.59
 //space: 57.4B - beats 21.46
