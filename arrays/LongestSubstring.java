@@ -6,9 +6,7 @@
 //Time:
 //space:
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class LongestSubstring {
     static int naive(String s) {
@@ -39,10 +37,10 @@ public class LongestSubstring {
         int n = s.length();
         int res = 0, len = 0;
         int start = 0, last = 0;
-        ArrayList<Character> ch = new ArrayList<>();
+        HashSet<Character> ch = new HashSet<>();
         while (start <= last && last < n){
             if (ch.contains(s.charAt(last))) {
-                ch.removeFirst();
+                ch.remove(s.charAt(start));
                 start++;
                 len--;
             }else {
@@ -50,13 +48,32 @@ public class LongestSubstring {
                 len++;
                 last++;
             }
+            // in this many comparisions are taking place, like in while statement, then in res. Also it has an extra
+            // storage of variable len which can be replaced.
+            res = Math.max(res, len);
             System.out.println(ch);
             System.out.println();
-            res = Math.max(res, len);
         }
         return res;
     }
+    static int optimistic2(String s) {
+        Set<Character> stringSet = new HashSet<>();
+        int r = 0, l = 0;
+        int maxLength = 0;
+
+        while(r < s.length()) {
+            while(stringSet.contains(s.charAt(r))) {
+                stringSet.remove(s.charAt(l));
+                l++;
+            }
+            stringSet.add(s.charAt(r));
+            maxLength = Math.max(maxLength, r - l + 1);
+            r++;
+        }
+        return maxLength;
+
+    }
     public static void main(String[] args) {
-        System.out.println(optimistic(""));
+        System.out.println(optimistic2("abcabc"));
     }
 }
