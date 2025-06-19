@@ -1,12 +1,12 @@
 //Problem: Sub Array sum equals k
 //link: https://leetcode.com/problems/subarray-sum-equals-k/
 //Source: LeetCode-560
-//Topics:
+//Topics: Arrays, HashMap, prefixSum
 //Diff: Med
-//Time:
-//space:
+//Time: 19ms - 98.97
+//space: 47.85MB - 5.17
 
-import java.util.Arrays;
+
 import java.util.HashMap;
 
 class SubArraySum {
